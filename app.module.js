@@ -8,13 +8,13 @@ app.config(function ($routeProvider) {
 		controller: 'InventoryController',
 		controllerAs: 'inventory'
 	})
-	.when('/addModel', {
-		templateUrl: 'addModel.html',
+	.when('/model', {
+		templateUrl: 'model.html',
 		controller: 'ModelsController',
 		controllerAs: 'models'
 	})
-	.when('/addManufacturer', {
-		templateUrl: 'addManufacturer.html',
+	.when('/manufacturer', {
+		templateUrl: 'manufacturer.html',
 		controller: 'ManufacturersController',
 		controllerAs: 'manufacturers'
 	})
