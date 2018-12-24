@@ -1,0 +1,30 @@
+<div class="row align-items-center vertical-align-container text-center">
+	<table ng-hide="inventory.errorText" class="table table-responsive-md table-hover">
+		<thead>
+			<tr class="d-flex">
+				<th id="main-head" class="col-lg-12"><h2>Inventory</h2></th>
+			</tr>
+			<tr class="d-flex">
+				<th class="col-lg-2">Serial No</th>
+				<th class="col-lg-3">Manufacturer</th>
+				<th class="col-lg-3">Model</th>
+				<th class="col-lg-2">Count</th>
+				<th class="col-lg-2">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="d-flex" ng-repeat="model in inventory.models">
+				<td class="col-lg-2">{{ $index }}</td>
+				<td class="col-lg-3">{{ inventory.manufacturers[model.manufacturer] }}</td>
+				<td class="col-lg-3">{{ model.name }}</td>
+				<td class="col-lg-2">{{ model.count }}</td>
+				<td class="col-lg-2">
+					<a type="button" class="btn btn-success btn-action" onclick="showModal('<?php echo $row['manufacturer']; ?>', '<?php echo $row['name']; ?>')"><i class="fas fa-eye fa-fw"></i></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div ng-show="inventory.errorText">
+		{{ inventory.errorText }}
+	</div>
+</div>

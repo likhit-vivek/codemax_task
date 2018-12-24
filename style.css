@@ -1,0 +1,33 @@
+.vertical-align-container {
+	height: 80vh;
+}
+
+.btn-action {
+	padding: 4px 8px;
+	color: white !important;
+}
+
+#main-head {
+	border-top: 0;
+	border-bottom: 0;
+}
+
+.create-button {
+	margin: 20px 0;
+}
+
+.form-heading {
+	margin-bottom: 20px;
+}
+
+#note {
+	resize: none;
+}
+
+#myModal .modal-header {
+	border-bottom: 0;
+}
+
+#myModal .modal-footer {
+	border-top: 0;
+}
