@@ -43,14 +43,16 @@ class Model
 			return json_encode(['success'=> false, 'msg'=> 'Please enter all values!']);
 		}
 		
-		$query 	= "INSERT INTO models (name, manufacturer, color, mfdyear, regnum, note, sold) VALUES 
-					('$name', $manufacturer, '$color', '$year', '$regNum', '$note', false)";
+		$note = addslashes($note);
+		
+		$query 	= "INSERT INTO models (name, manufacturer, color, mfdyear, regnum, note, sold) VALUES ".
+					"('$name', $manufacturer, '$color', '$year', '$regNum', '$note', false)";
 		$result = $this->db->executeQuery($query);
 		
 		if($result) {
 			return json_encode(['success'=> true, 'msg'=> 'success']);
 		} else {
-			return json_encode(['success'=> false, 'msg'=> 'Unable to add model. Try again.', 'error'=>$mysqli->error]);
+			return json_encode(['success'=> false, 'msg'=> 'Unable to add model. Try again.']);
 		}
 	}
 	

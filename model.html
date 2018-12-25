@@ -1,0 +1,32 @@
+<div class="text-center row align-items-center vertical-align-container">
+	<div class="col"></div>
+	<div class="col-lg-6 col-xl-5">
+		<h3 class="text-center form-heading">Add a new model</h3>
+		<div class="alert alert-success row" ng-if="models.successText">{{ models.successText }}</div>
+		<div class="alert alert-danger row" ng-if="models.errorText">{{ models.errorText }}</div>
+		<form ng-submit="models.submit()">
+			<input type="hidden" class="form-control" name="functionName" ng-model="models.formData.functionName">
+			<div class="form-group row">
+				<input type="text" class="form-control col mr-sm-2" id="name" placeholder="Enter model name" ng-model="models.formData.name" name="name">
+				<select class="form-control col" id="manufacturer" ng-model="models.formData.manufacturer" name="manufacturer">
+					<option value="" selected disabled hidden>Choose a manufacturer</option>
+					<option ng-repeat="manufacturer in models.manufacturers" value="{{ manufacturer.id }}">{{ manufacturer.name }}</option>
+				</select>
+			</div>
+			<div class="form-group row">
+				<input type="text" class="form-control col mr-sm-2" id="color" placeholder="Enter color" ng-model="models.formData.color" name="color">
+				<input type="text" class="form-control col" id="year" placeholder="Enter year of manufacture" ng-model="models.formData.year" name="year">
+			</div>
+			<div class="form-group row">
+				<input type="text" class="form-control" id="regNum" placeholder="Enter registration number" ng-model="models.formData.regNum" name="regNum">
+			</div>
+			<div class="form-group row">
+				<textarea class="form-control" rows="5" id="note" ng-model="models.formData.note" name="note" maxlength="250" placeholder="Enter a note (Max 250 characters)"></textarea>
+			</div>
+			<div class="row">
+				<button type="submit" class="btn btn-primary col-12">Submit</button>
+			</div>
+		</form>
+	</div>
+	<div class="col"></div>
+</div>

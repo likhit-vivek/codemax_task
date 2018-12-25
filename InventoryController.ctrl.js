@@ -10,11 +10,9 @@ app.controller("InventoryController", ['ModelsService', 'ManufacturersService',
 		
 		self.models = data;
 		self.errorText = "";
-		
 	}, function (data) {
 		
 		self.errorText = data.status + " " + data.statusText;
-		
 	});
 	
 	ManufacturersService.getManufacturers().then(function (data) {
@@ -24,10 +22,8 @@ app.controller("InventoryController", ['ModelsService', 'ManufacturersService',
 		});
 		
 		self.errorText = "";
-	
 	}, function (data) {
 		
 		self.errorText = data.status + " " + data.statusText;
-		
 	});
 }]);

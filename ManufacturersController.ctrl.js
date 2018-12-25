@@ -10,7 +10,6 @@ app.controller('ManufacturersController', ['ManufacturersService',
 	self.submit = function () {
 		
 		ManufacturersService.addManufacturer(self.formData).then(function (data) {
-			console.log(data);
 			if(data.success) {
 				self.successText = "Manufacturer added successfully!";
 				self.errorText = "";
