@@ -1,5 +1,5 @@
-app.controller('ManufacturersController', ['ManufacturersService', 
-					function (ManufacturersService) {
+app.controller('ManufacturersController', ['ManufacturersService', '$timeout',
+					function (ManufacturersService, $timeout) {
 	
 	var self = this;
 	
@@ -13,14 +13,17 @@ app.controller('ManufacturersController', ['ManufacturersService',
 			if(data.success) {
 				self.successText = "Manufacturer added successfully!";
 				self.errorText = "";
+				$timeout(function () { self.successText=""; }, 3000);
 			} else {
 				self.successText = "";
 				self.errorText = data.msg;
+				$timeout(function () { self.errorText=""; }, 3000);
 			}
 		}, function (data) {
 			
 			self.successText = "";
 			self.errorText = "Unable to add manufacturer. Try again.";
+			$timeout(function () { self.errorText=""; }, 3000);
 		})
 	}
 }]);

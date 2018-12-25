@@ -26,6 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 } elseif($_SERVER['REQUEST_METHOD'] == 'GET')
 {
 	if(isset($_GET['inventory'])) echo $selfObject->getModelsByGroup();
+	elseif(isset($_GET['manf']) && isset($_GET['model'])) echo $selfObject->getModelsByName($_GET['manf'], $_GET['model']);
 }
 
 class Model 
@@ -67,7 +68,7 @@ class Model
 	{
 		$query = "SELECT * FROM models WHERE manufacturer=$manufacturer AND name='$model'";
 		$result = $this->db->executeQuery($query);
-		return $result;
+		return json_encode($result->fetch_all(MYSQLI_ASSOC));
 	}
 	
 	public function markAsSold($id)

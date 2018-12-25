@@ -19,12 +19,60 @@
 				<td class="col-lg-3">{{ model.name }}</td>
 				<td class="col-lg-2">{{ model.count }}</td>
 				<td class="col-lg-2">
-					<a type="button" class="btn btn-success btn-action" onclick="showModal('<?php echo $row['manufacturer']; ?>', '<?php echo $row['name']; ?>')"><i class="fas fa-eye fa-fw"></i></a>
+					<a type="button" class="btn btn-success btn-action" ng-click="inventory.showModal(model.manufacturer, model.name)"><i class="fas fa-eye fa-fw"></i></a>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<div ng-show="inventory.errorText">
 		{{ inventory.errorText }}
+	</div>
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<div class="modal-body">
+					<div class="alert alert-success" ng-if="inventory.successText">{{ inventory.successText }}</div>
+					<div class="alert alert-danger" ng-if="inventory.errorText">{{ inventory.errorText }}</div>
+					<table class="table table-responsive-md table-hover text-center">
+						<thead>
+							<tr>
+								<th>ID No</th>
+								<th>Manufacturer</th>
+								<th>Model</th>
+								<th>Color</th>
+								<th>Year of Manufacture</th>
+								<th>Reg Number</th>
+								<th>Note</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="model in inventory.modelList" id="{{ model.id }}">
+								<td>{{ model.id }}</td>
+								<td><?php echo $manufacturers[$row['manufacturer']]; ?></td>
+								<td>{{ model.name }}</td>
+								<td>{{ model.color }}</td>
+								<td>{{ model.mfdyear }}</td>
+								<td>{{ model.regnum }}</td>
+								<td>{{ model.note }}</td>
+								<td>
+									<span ng-if="model.sold == 1">Sold out</span>
+									<button ng-if="model.sold == 0" type='button' class='btn btn-primary' ng-click="inventory.sell(model.id)">Sell</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="modal-footer">
+				</div>
+
+			</div>
+		</div>
 	</div>
 </div>
