@@ -1,0 +1,12 @@
+{
+    "name": "likhit-vivek/codemax_task",
+    "require": {
+        "php": "7.3"
+    },
+    "authors": [
+        {
+            "name": "Likhit Vivek",
+            "email": "vivekguf1509@gmail.com"
+        }
+    ]
+}
