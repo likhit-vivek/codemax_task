@@ -4,17 +4,17 @@ app.config(function ($routeProvider) {
 	
 	$routeProvider
 	.when('/index', {
-		templateUrl: 'inventory.html',
+		templateUrl: 'views/inventory.html',
 		controller: 'InventoryController',
 		controllerAs: 'inventory'
 	})
 	.when('/model', {
-		templateUrl: 'model.html',
+		templateUrl: 'views/model.html',
 		controller: 'ModelsController',
 		controllerAs: 'models'
 	})
 	.when('/manufacturer', {
-		templateUrl: 'manufacturer.html',
+		templateUrl: 'views/manufacturer.html',
 		controller: 'ManufacturersController',
 		controllerAs: 'manufacturers'
 	})

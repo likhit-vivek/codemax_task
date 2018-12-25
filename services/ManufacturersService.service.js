@@ -6,7 +6,7 @@ app.service('ManufacturersService', ['$http', '$httpParamSerializerJQLike', '$q'
 		var def = $q.defer();
 		
 		$http({
-			url: 'manufacturer.php',
+			url: './models/manufacturer.php',
 			method: 'POST',
 			data: $httpParamSerializerJQLike(formData),
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -23,7 +23,7 @@ app.service('ManufacturersService', ['$http', '$httpParamSerializerJQLike', '$q'
 	self.getManufacturers = function () {
 		var def = $q.defer();
 		
-		$http.get('manufacturer.php')
+		$http.get('./models/manufacturer.php')
 		.then(function (response) {
 			def.resolve(response.data);
 		}, function (response) {

@@ -6,7 +6,7 @@ app.service("ModelsService", ['$http', '$httpParamSerializerJQLike', '$q', funct
 		var def = $q.defer();
 		
 		$http({
-			url: 'model.php',
+			url: './models/model.php',
 			method: 'POST',
 			data: $httpParamSerializerJQLike(formData),
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -23,7 +23,7 @@ app.service("ModelsService", ['$http', '$httpParamSerializerJQLike', '$q', funct
 	self.getInventory = function () {
 		var def = $q.defer();
 		
-		$http.get('model.php?inventory=true')
+		$http.get('./models/model.php?inventory=true')
 		.then(function (response) {
 			def.resolve(response.data);
 		}, function (response) {
@@ -37,7 +37,7 @@ app.service("ModelsService", ['$http', '$httpParamSerializerJQLike', '$q', funct
 		var def = $q.defer();
 		
 		$http({
-			url: 'model.php',
+			url: './models/model.php',
 			method: 'GET',
 			params: { 'manf': manufacturer, 'model': model },
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -55,7 +55,7 @@ app.service("ModelsService", ['$http', '$httpParamSerializerJQLike', '$q', funct
 		var def = $q.defer();
 		
 		$http({
-			url: 'model.php',
+			url: './models/model.php',
 			method: 'POST',
 			data: $httpParamSerializerJQLike({'id': id, 'flag': true}),
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
