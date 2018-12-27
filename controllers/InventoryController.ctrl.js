@@ -1,5 +1,5 @@
-app.controller("InventoryController", ['ModelsService', 'ManufacturersService', '$timeout',
-					function (ModelsService, ManufacturersService, $timeout) {
+app.controller("InventoryController", ['ModelsService', 'ManufacturersService', '$timeout', 'filterFilter',
+					function (ModelsService, ManufacturersService, $timeout, filterFilter) {
 	
 	var self = this;
 	self.manufacturers = [];
@@ -7,6 +7,7 @@ app.controller("InventoryController", ['ModelsService', 'ManufacturersService', 
 	self.modelsList = [];
 	self.errorText = "";
 	self.successText = "";
+	self.soldFilter = true;
 	
 	ModelsService.getInventory().then(function (data) {
 		
@@ -32,6 +33,7 @@ app.controller("InventoryController", ['ModelsService', 'ManufacturersService', 
 		ModelsService.getModels(manufacturer, model).then(function (data) {
 			
 			self.modelList = data;
+			//if(self.soldFilter) self.modelList = filterFilter(self.modelList, {sold: 0});
 			self.errorText = "";
 			$('#myModal').modal({'show': true});
 		}, function (data) {

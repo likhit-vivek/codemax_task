@@ -7,6 +7,10 @@
 	color: white !important;
 }
 
+.inventory {
+	margin-top: 20px;
+}
+
 #main-head {
 	border-top: 0;
 	border-bottom: 0;

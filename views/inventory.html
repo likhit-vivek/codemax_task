@@ -1,9 +1,9 @@
-<div class="row align-items-center vertical-align-container text-center">
+<div class="row align-items-center inventory text-center">
+	<h2 class="text-center col-lg-12">Inventory</h2>
 	<table ng-hide="inventory.errorText" class="table table-responsive-md table-hover">
 		<thead>
-			<tr class="d-flex">
-				<th id="main-head" class="col-lg-12"><h2>Inventory</h2></th>
-			</tr>
+		</thead>
+		<thead>
 			<tr class="d-flex">
 				<th class="col-lg-2">Serial No</th>
 				<th class="col-lg-3">Manufacturer</th>
@@ -14,7 +14,7 @@
 		</thead>
 		<tbody>
 			<tr class="d-flex" ng-repeat="model in inventory.models">
-				<td class="col-lg-2">{{ $index }}</td>
+				<td class="col-lg-2">{{ $index+1 }}</td>
 				<td class="col-lg-3">{{ inventory.manufacturers[model.manufacturer] }}</td>
 				<td class="col-lg-3">{{ model.name }}</td>
 				<td class="col-lg-2">{{ model.count }}</td>
@@ -54,7 +54,7 @@
 						<tbody>
 							<tr ng-repeat="model in inventory.modelList" id="{{ model.id }}">
 								<td>{{ model.id }}</td>
-								<td><?php echo $manufacturers[$row['manufacturer']]; ?></td>
+								<td>{{ inventory.manufacturers[model.manufacturer] }}</td>
 								<td>{{ model.name }}</td>
 								<td>{{ model.color }}</td>
 								<td>{{ model.mfdyear }}</td>
